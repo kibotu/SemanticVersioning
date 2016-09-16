@@ -16,8 +16,8 @@ ext.vcsUrl = 'https://github.com/int128/gradle-plugin-starter.git'
 // Set product version if tag is given on Travis CI
 System.getenv('TRAVIS_TAG')?.eachMatch(/^[\d.]+$/) { m -> project.version = m[0] }
 
-sourceCompatibility = JavaVersion.VERSION_1_6
-targetCompatibility = JavaVersion.VERSION_1_6
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     jcenter()
@@ -27,7 +27,9 @@ repositories {
 dependencies {
     compile gradleApi()
     compile localGroovy()
-    compile 'com.android.tools.build:gradle:2.2.0-rc2'
+    compile('com.android.tools.build:gradle:2.2.0-rc2') {
+        force = true
+    }
     testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-2') {
         exclude module: 'groovy-all'
     }
@@ -83,7 +85,7 @@ publishing {
 
 bintray {
     user = System.getenv('BINTRAY_USER') ?: getProjectProperty('bintrayUser')
-    key  = System.getenv('BINTRAY_KEY')  ?: getProjectProperty('bintrayKey')
+    key = System.getenv('BINTRAY_KEY') ?: getProjectProperty('bintrayKey')
     publications = ['maven']
     pkg {
         repo = 'maven'
