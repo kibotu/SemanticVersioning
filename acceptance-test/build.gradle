@@ -1,0 +1,17 @@
+description 'Automated acceptance test'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath "net.kibotu.SemanticVersioning:$version"
+    }
+}
+
+apply plugin: 'net.kibotu.SemanticVersioning'
+
+task test << {
+    assert plugins.hasPlugin('net.kibotu.SemanticVersioning')
+}

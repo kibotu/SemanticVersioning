@@ -1,0 +1,1 @@
+GIT And CI Based Semantic Versioning for Android
