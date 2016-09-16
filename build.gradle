@@ -16,8 +16,8 @@ ext.vcsUrl = 'https://github.com/int128/gradle-plugin-starter.git'
 // Set product version if tag is given on Travis CI
 System.getenv('TRAVIS_TAG')?.eachMatch(/^[\d.]+$/) { m -> project.version = m[0] }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
 
 repositories {
     jcenter()
